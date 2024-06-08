@@ -57,7 +57,7 @@ create table tbl_expense_transactions(
 	transaction_type char(1),
 	trans_name varchar(50),
 	trans_description text,
-	payer_id references tbl_user_registration(user_id),
+	payer_id character varying(20) references tbl_user_registration(user_id),
 	rec_creation_time timestamp,
 	rec_updated_time timestamp,
 	updated_by character varying(20),
@@ -69,7 +69,7 @@ create table tbl_expense_transactions(
 
 create table tbl_semi_dstrb_transactions(
 	expense_id uuid references tbl_expense_details(expense_id),
-	transaction_id smallint references tbl_expense_transactions(transaction_id),
+	transaction_id smallint,
 	owe_by character varying(20) references tbl_user_registration(user_id),
 	rec_creation_time timestamp,
 	rec_updated_time timestamp,
